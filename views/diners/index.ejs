@@ -1,0 +1,36 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-cutlery"></span> Welcome To DineHK!</h1>
+             <p>View top food spots in Hong Kong!</p>
+             <p>
+                <a class="btn btn-primary btn-lg" href="/diners/new">Add New Restaurant</a>
+             </p>
+              <p>
+              <form action="/diners" method="GET" class="form-inline" id="diner-search">
+                <div class="form-group">
+                  <input type="text" name="search" placeholder="Restaurant search..." class="form-control">
+                </div>
+              </form>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center flex-wrap" id="diner-grid">
+        <% diners.forEach(function(diner){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= diner.image %>">
+                   <div class="caption">
+                       <h4><%= diner.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/diners/<%= diner._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>
