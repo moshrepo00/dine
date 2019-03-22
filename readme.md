@@ -1,3 +1,3 @@
-#Diner HK
+#Dine HK
 
 #Run app.js
